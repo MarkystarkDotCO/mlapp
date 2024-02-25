@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="templates/upload/upload.css">
+</head>
+<style>
+    /* styles.css */
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+h1 {
+    color: #333;
+}
+p {
+    color: #666;
+}
+/* templates/styles.css */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    /* Adjust styles for smaller screens */
+    h1 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 14px;
+    }
+}
+
+</style>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/model">model</a></li>
+            <li><a href="/resume">resume</a></li>
+            <li><a href="/bio">biography</a></li>
+        </ul>
+    </nav>
+    <h1>Hello, AM Methanon!</h1>
+    <p>This is a simple ML app served by FastAPI.</p>
+    <div class="container">
+        <h1>Training Set</h1>
+        <div class="row" id="table"></div>
+        <div class="row">
+            <div class="col" id="selectx">
+                <!-- Your select dropdown options here -->
+            </div>
+            <div class="col" id="selecty">
+                <!-- Your select dropdown options here -->
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get the dropdown element
+        var dropdown = document.getElementById("selectx");
+
+        // Add change event listener to the dropdown
+        dropdown.addEventListener("change", function() {
+            // Get the selected option
+            var selectedOption = dropdown.options[dropdown.selectedIndex];
+
+            // Remove the selected option from the dropdown
+            dropdown.removeChild(selectedOption);
+        });
+    </script>
+</body>
+</html>

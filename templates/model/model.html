@@ -1,0 +1,90 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="templates/index.css">
+</head>
+<script type="text/javascript">
+    document.getElementById("regressionform").disabled = true;
+    document.getElementById("categoryform").disabled = false;
+</script>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/model">model</a></li>
+            <li><a href="/resume">resume</a></li>
+            <li><a href="/bio">biography</a></li>
+        </ul>
+    </nav>
+    <h1>Welcome, Here is "Make Model" space!</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <img src="templates/model/dataset_example.jpg" alt="Avatar" class="center" style="border-radius: 5%; width: 100%; height:80%;"> 
+                    </div>
+                    <div class="col">
+
+                    <p>1. features ต้องอยู่ column ก่อนหน้า target</p>
+                    <p>2. target ต้องอยู่ column ท้ายสุด</p>
+                    <p>3. data ต้องผ่านการ cleansing จนพร้อม train model แล้ว</p>
+                    <p>4. กรุณาเลือก model ที่ต้องการ</p>
+                    <!-- <a href="/readcsv/regression">
+                        <button type="button" class="btn btn-danger">regression</button>
+                    </a>
+                    <a href="/readcsv/category">
+                        <button type="button" class="btn btn-danger">category</button>
+                    </a>  -->
+
+                        <!-- <input type="file" id="csvFileInput" accept=".csv">
+                        <button type="button" class="btn btn-danger" onclick="uploadCSV()">Upload CSV</button>   -->
+                        <!-- <label for="formFile" class="form-label">Default file input example</label>
+                        <input class="form-control" type="file" id="formFile" accept=".csv">  
+                        <button type="button" class="btn btn-danger" onclick="uploadCSV()">Upload CSV</button> -->
+                                    <!-- <button onclick="getOption()"> Check option </button> -->
+                <p> 
+                    <select class="btn btn-danger" id="selecttype" onchange="getOption()">
+                        <option value="category">category</option>
+                        <option value="regression">regression</option>
+                    </select>
+                </p>
+                <p> โมเดลที่คุณเลือกคือ
+                    <span class="output"></span>
+                </p> 
+                        <form  id="uploadForm" method="post" action="" enctype="multipart/form-data">
+                            <label  for="formFile" class="form-label">กรุณาอัพโหลด Dataset ในรูปแบบ CSV </label>
+                            <input  class="form-control" type="file" id="formFile" name="formFile" accept=".csv">  
+                            <input id="submitfile" disabled class="submit" type="submit" value="Submit">
+                        </form>
+                    </div>
+
+                </div>
+
+
+                <div class="row" id="table"></div>
+              </div>
+
+         
+         
+
+            <script type="text/javascript">
+                function getOption() {
+                    document.getElementById("submitfile").disabled = false;
+                    selectElement = document.querySelector('#selecttype');
+                    output = selectElement.value;
+                    document.querySelector('.output').textContent = output;
+                                // Get the form element
+                    formElement = document.getElementById('uploadForm');
+
+// Set the action attribute of the form
+                    formElement.action = `/readcsv/${output}`;
+                }
+            </script>
+
+ 
+</body>
+</html>
