@@ -1,0 +1,15 @@
+1. cleaning 
+    null
+    normalization, standardization
+    feature selection
+        correlation
+    encoder
+    dimensional reduction
+    outlier detection
+        IQR, percentile, p-value
+2. config model
+    hyperparam
+    search param
+3. save and download weight
+    native, quantisasion
+    onnx
